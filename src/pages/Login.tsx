@@ -100,9 +100,6 @@ export default function Login() {
             </div>
 
             <div className="space-y-6 mb-8">
-              <h2 className="text-3xl font-heading font-bold text-text leading-tight">
-                Designed for neurodivergent adults diagnosed after 25
-              </h2>
               <p className="text-lg text-text leading-relaxed font-body">
                 A safe space to explore your thoughts, understand your patterns, and grow with the support of AI-powered conversations that truly listen.
               </p>

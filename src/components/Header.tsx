@@ -15,7 +15,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div>
-              <h1 className="text-3xl font-heading font-bold text-text">knowMe</h1>
+              <h1 className="text-3xl font-heading font-bold text-text">audhd.ai</h1>
             </div>
             <div className="hidden md:block">
               <p className="text-sm text-text-secondary font-body">Your conversational companion</p>

@@ -30,7 +30,7 @@ export default function Sidebar() {
             <MessageCircle className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h2 className="font-heading font-bold text-text">knowMe</h2>
+            <h2 className="font-heading font-bold text-text">audhd.ai</h2>
             <p className="text-xs text-text-secondary font-accent">AI Companion</p>
           </div>
         </div>

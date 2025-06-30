@@ -76,7 +76,7 @@ export default function ThemeCustomizer({ isOpen, onClose }: ThemeCustomizerProp
               </div>
               <div>
                 <h2 className="text-xl font-heading font-bold text-text">Theme Studio</h2>
-                <p className="text-sm text-text-secondary">Customize your knowMe experience</p>
+                <p className="text-sm text-text-secondary">Customize your audhd.ai experience</p>
               </div>
             </div>
             <button

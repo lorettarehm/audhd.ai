@@ -152,7 +152,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Load saved theme from localStorage
-    const savedTheme = localStorage.getItem('knowme-theme')
+    const savedTheme = localStorage.getItem('audhd-ai-theme')
     if (savedTheme) {
       try {
         const theme = JSON.parse(savedTheme)
@@ -195,7 +195,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.style.setProperty('--font-accent', fonts.accent)
 
     // Save to localStorage
-    localStorage.setItem('knowme-theme', JSON.stringify({
+    localStorage.setItem('audhd-ai-theme', JSON.stringify({
       palette: currentPalette,
       customPalette,
       fonts

@@ -58,7 +58,7 @@ export default function Login() {
 
         <div className="max-w-6xl w-full grid lg:grid-cols-2 gap-8 items-center">
           {/* Left side - Branding */}
-          <div className="text-center lg:text-left watercolor-float">
+          <div className="text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start space-x-4 mb-8">
               <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center watercolor-shadow-strong">
                 <MessageCircle className="w-10 h-10 text-white" />

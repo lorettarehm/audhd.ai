@@ -25,7 +25,7 @@ export default function Sidebar() {
   return (
     <div className="w-64 bg-surface border-r-2 border-border flex flex-col watercolor-shadow">
       <div className="p-6">
-        <div className="flex items-center space-x-3 mb-8 watercolor-pulse">
+        <div className="flex items-center space-x-3 mb-8">
           <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center watercolor-shadow">
             <MessageCircle className="w-6 h-6 text-white" />
           </div>

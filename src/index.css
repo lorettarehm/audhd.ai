@@ -300,35 +300,3 @@
     0 0 0 3px var(--color-watercolor-1),
     0 0 0 5px var(--color-primary);
 }
-
-/* Watercolor animations */
-@keyframes watercolor-float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-10px) rotate(1deg); }
-  66% { transform: translateY(5px) rotate(-1deg); }
-}
-
-@keyframes watercolor-pulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-
-.watercolor-float {
-  animation: watercolor-float 6s ease-in-out infinite;
-}
-
-.watercolor-pulse {
-  animation: watercolor-pulse 3s ease-in-out infinite;
-}
-
-/* Responsive watercolor effects */
-@media (max-width: 768px) {
-  .card {
-    padding: 1.5rem;
-    border-radius: 1rem;
-  }
-  
-  .watercolor-card {
-    border-radius: 0.75rem;
-  }
-}

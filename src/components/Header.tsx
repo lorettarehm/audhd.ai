@@ -14,7 +14,7 @@ export default function Header() {
       <header className="bg-surface border-b-2 border-border px-6 py-4 watercolor-shadow">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="watercolor-float">
+            <div>
               <h1 className="text-3xl font-heading font-bold text-text">knowMe</h1>
             </div>
             <div className="hidden md:block">

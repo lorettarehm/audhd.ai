@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div className="p-6 max-w-7xl mx-auto">
       {/* Welcome Section */}
-      <div className="mb-8 watercolor-float">
+      <div className="mb-8">
         <h1 className="text-4xl font-heading font-bold text-text mb-3">
           Welcome back! 👋
         </h1>
@@ -83,7 +83,7 @@ export default function Home() {
 
       {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="watercolor-card p-6 text-center watercolor-pulse">
+        <div className="watercolor-card p-6 text-center">
           <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4 watercolor-shadow">
             <MessageCircle className="w-7 h-7 text-white" />
           </div>

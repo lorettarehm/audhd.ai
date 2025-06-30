@@ -93,7 +93,7 @@ export default function Login() {
                 <MessageCircle className="w-10 h-10 text-white" />
               </div>
               <div>
-                <h1 className="text-5xl font-heading font-bold text-text">knowMe</h1>
+                <h1 className="text-5xl font-heading font-bold text-text">audhd.ai</h1>
                 <p className="text-lg text-text-secondary font-body">Your conversational companion</p>
                 <p className="text-sm text-accent font-accent">{currentPalette.name}</p>
               </div>
@@ -140,7 +140,7 @@ export default function Login() {
                 {showForgotPassword 
                   ? 'Reset Password' 
                   : isSignUp 
-                    ? 'Join knowMe' 
+                    ? 'Join audhd.ai' 
                     : 'Welcome back'
                 }
               </h3>

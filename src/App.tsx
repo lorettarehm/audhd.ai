@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import { ConversationProvider } from './contexts/ConversationContext'
+import { ThemeProvider } from './contexts/ThemeContext'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Chat from './pages/Chat'
@@ -12,19 +13,21 @@ import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
   return (
-    <AuthProvider>
-      <ConversationProvider>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Layout />}>
-            <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
-            <Route path="chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
-            <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-            <Route path="analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
-          </Route>
-        </Routes>
-      </ConversationProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <ConversationProvider>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Layout />}>
+              <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
+              <Route path="chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+              <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+              <Route path="analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
+            </Route>
+          </Routes>
+        </ConversationProvider>
+      </AuthProvider>
+    </ThemeProvider>
   )
 }
 

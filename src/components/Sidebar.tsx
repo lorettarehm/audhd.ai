@@ -23,15 +23,15 @@ export default function Sidebar() {
   ]
 
   return (
-    <div className="w-64 bg-white border-r border-gray-200 flex flex-col">
+    <div className="w-64 bg-surface border-r-2 border-border flex flex-col watercolor-shadow">
       <div className="p-6">
-        <div className="flex items-center space-x-3 mb-8">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
+        <div className="flex items-center space-x-3 mb-8 watercolor-pulse">
+          <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center watercolor-shadow">
             <MessageCircle className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h2 className="font-bold text-gray-900">knowMe</h2>
-            <p className="text-xs text-gray-600">AI Companion</p>
+            <h2 className="font-heading font-bold text-text">knowMe</h2>
+            <p className="text-xs text-text-secondary font-accent">AI Companion</p>
           </div>
         </div>
 
@@ -41,15 +41,15 @@ export default function Sidebar() {
               key={to}
               to={to}
               className={({ isActive }) =>
-                `flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors ${
+                `flex items-center space-x-3 px-4 py-3 rounded-xl transition-all font-medium ${
                   isActive
-                    ? 'bg-primary-100 text-primary-700'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-watercolor-1 text-primary border-2 border-primary watercolor-shadow'
+                    : 'text-text-secondary hover:text-text hover:bg-watercolor-1 border-2 border-transparent'
                 }`
               }
             >
               <Icon className="w-5 h-5" />
-              <span className="font-medium">{label}</span>
+              <span className="font-body">{label}</span>
             </NavLink>
           ))}
         </nav>
@@ -57,10 +57,11 @@ export default function Sidebar() {
 
       <div className="flex-1 px-6 pb-6">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm font-semibold text-gray-900">Conversations</h3>
+          <h3 className="text-sm font-heading font-semibold text-text">Conversations</h3>
           <button
             onClick={handleNewConversation}
-            className="p-1 text-gray-600 hover:text-gray-900 transition-colors"
+            className="p-2 text-text-secondary hover:text-text transition-colors rounded-lg hover:bg-watercolor-1 watercolor-shadow"
+            title="New Conversation"
           >
             <Plus className="w-4 h-4" />
           </button>
@@ -71,11 +72,18 @@ export default function Sidebar() {
             <button
               key={conversation.id}
               onClick={() => selectConversation(conversation.id)}
-              className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors truncate"
+              className="w-full text-left px-3 py-3 text-sm text-text hover:bg-watercolor-1 rounded-lg transition-all truncate border-2 border-transparent hover:border-border watercolor-card"
             >
-              {conversation.title}
+              <span className="font-body">{conversation.title}</span>
             </button>
           ))}
+          
+          {conversations.length === 0 && (
+            <div className="text-center py-8 text-text-secondary">
+              <MessageCircle className="w-8 h-8 mx-auto mb-2 opacity-50" />
+              <p className="text-xs font-body">No conversations yet</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

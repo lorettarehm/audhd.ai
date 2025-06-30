@@ -24,11 +24,11 @@ export default function Home() {
   return (
     <div className="p-6 max-w-7xl mx-auto">
       {/* Welcome Section */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+      <div className="mb-8 watercolor-float">
+        <h1 className="text-4xl font-heading font-bold text-text mb-3">
           Welcome back! 👋
         </h1>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-text-secondary font-body">
           Ready to continue your journey of self-discovery and growth?
         </p>
       </div>
@@ -37,45 +37,45 @@ export default function Home() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <button
           onClick={handleQuickStart}
-          className="card hover:shadow-xl transition-shadow duration-200 text-left group"
+          className="watercolor-card p-6 hover:watercolor-shadow-strong transition-all text-left group"
         >
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center group-hover:bg-primary-200 transition-colors">
-              <Plus className="w-6 h-6 text-primary-600" />
+            <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center group-hover:bg-secondary transition-colors watercolor-shadow">
+              <Plus className="w-7 h-7 text-white" />
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900">Start New Chat</h3>
-              <p className="text-sm text-gray-600">Begin a fresh conversation</p>
+              <h3 className="font-heading font-semibold text-text">Start New Chat</h3>
+              <p className="text-sm text-text-secondary font-body">Begin a fresh conversation</p>
             </div>
           </div>
         </button>
 
         <Link
           to="/analytics"
-          className="card hover:shadow-xl transition-shadow duration-200 text-left group"
+          className="watercolor-card p-6 hover:watercolor-shadow-strong transition-all text-left group"
         >
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center group-hover:bg-secondary-200 transition-colors">
-              <BarChart3 className="w-6 h-6 text-secondary-600" />
+            <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center group-hover:bg-accent transition-colors watercolor-shadow">
+              <BarChart3 className="w-7 h-7 text-white" />
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900">View Analytics</h3>
-              <p className="text-sm text-gray-600">Explore your patterns</p>
+              <h3 className="font-heading font-semibold text-text">View Analytics</h3>
+              <p className="text-sm text-text-secondary font-body">Explore your patterns</p>
             </div>
           </div>
         </Link>
 
         <Link
           to="/profile"
-          className="card hover:shadow-xl transition-shadow duration-200 text-left group"
+          className="watercolor-card p-6 hover:watercolor-shadow-strong transition-all text-left group"
         >
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center group-hover:bg-accent-200 transition-colors">
-              <User className="w-6 h-6 text-accent-600" />
+            <div className="w-14 h-14 bg-accent rounded-2xl flex items-center justify-center group-hover:bg-primary transition-colors watercolor-shadow">
+              <User className="w-7 h-7 text-white" />
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900">Update Profile</h3>
-              <p className="text-sm text-gray-600">Manage your information</p>
+              <h3 className="font-heading font-semibold text-text">Update Profile</h3>
+              <p className="text-sm text-text-secondary font-body">Manage your information</p>
             </div>
           </div>
         </Link>
@@ -83,64 +83,64 @@ export default function Home() {
 
       {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="card text-center">
-          <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-            <MessageCircle className="w-6 h-6 text-primary-600" />
+        <div className="watercolor-card p-6 text-center watercolor-pulse">
+          <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4 watercolor-shadow">
+            <MessageCircle className="w-7 h-7 text-white" />
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">{totalConversations}</h3>
-          <p className="text-sm text-gray-600">Total Conversations</p>
+          <h3 className="text-3xl font-heading font-bold text-text">{totalConversations}</h3>
+          <p className="text-sm text-text-secondary font-body">Total Conversations</p>
         </div>
 
-        <div className="card text-center">
-          <div className="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-            <Calendar className="w-6 h-6 text-secondary-600" />
+        <div className="watercolor-card p-6 text-center">
+          <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 watercolor-shadow">
+            <Calendar className="w-7 h-7 text-white" />
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">
+          <h3 className="text-3xl font-heading font-bold text-text">
             {conversations.filter(c => {
               const today = new Date()
               const convDate = new Date(c.created_at)
               return convDate.toDateString() === today.toDateString()
             }).length}
           </h3>
-          <p className="text-sm text-gray-600">Today's Chats</p>
+          <p className="text-sm text-text-secondary font-body">Today's Chats</p>
         </div>
 
-        <div className="card text-center">
-          <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-            <Clock className="w-6 h-6 text-accent-600" />
+        <div className="watercolor-card p-6 text-center">
+          <div className="w-14 h-14 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-4 watercolor-shadow">
+            <Clock className="w-7 h-7 text-white" />
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">
+          <h3 className="text-3xl font-heading font-bold text-text">
             {conversations.filter(c => {
               const weekAgo = new Date()
               weekAgo.setDate(weekAgo.getDate() - 7)
               return new Date(c.created_at) >= weekAgo
             }).length}
           </h3>
-          <p className="text-sm text-gray-600">This Week</p>
+          <p className="text-sm text-text-secondary font-body">This Week</p>
         </div>
 
-        <div className="card text-center">
-          <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
-            <TrendingUp className="w-6 h-6 text-orange-600" />
+        <div className="watercolor-card p-6 text-center">
+          <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 watercolor-shadow">
+            <TrendingUp className="w-7 h-7 text-white" />
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">
+          <h3 className="text-3xl font-heading font-bold text-text">
             {Math.round((conversations.filter(c => {
               const weekAgo = new Date()
               weekAgo.setDate(weekAgo.getDate() - 7)
               return new Date(c.created_at) >= weekAgo
             }).length / 7) * 10) / 10}
           </h3>
-          <p className="text-sm text-gray-600">Daily Average</p>
+          <p className="text-sm text-text-secondary font-body">Daily Average</p>
         </div>
       </div>
 
       {/* Recent Conversations */}
-      <div className="card">
+      <div className="watercolor-card watercolor-shadow">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-900">Recent Conversations</h2>
+          <h2 className="text-2xl font-heading font-semibold text-text">Recent Conversations</h2>
           <Link
             to="/chat"
-            className="text-primary-600 hover:text-primary-700 font-medium text-sm"
+            className="text-primary hover:text-secondary font-medium text-sm font-body transition-colors"
           >
             View all
           </Link>
@@ -151,22 +151,22 @@ export default function Home() {
             {recentConversations.map((conversation) => (
               <div
                 key={conversation.id}
-                className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                className="flex items-center justify-between p-4 bg-watercolor-1 rounded-xl hover:bg-watercolor-2 transition-colors border-2 border-transparent hover:border-border"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <MessageCircle className="w-5 h-5 text-primary-600" />
+                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center watercolor-shadow">
+                    <MessageCircle className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-gray-900">{conversation.title}</h3>
-                    <p className="text-sm text-gray-600">
+                    <h3 className="font-medium text-text font-body">{conversation.title}</h3>
+                    <p className="text-sm text-text-secondary font-body">
                       {format(new Date(conversation.updated_at), 'MMM dd, yyyy • HH:mm')}
                     </p>
                   </div>
                 </div>
                 <Link
                   to="/chat"
-                  className="text-primary-600 hover:text-primary-700 font-medium text-sm"
+                  className="text-primary hover:text-secondary font-medium text-sm font-body transition-colors px-4 py-2 rounded-lg hover:bg-watercolor-1"
                 >
                   Continue
                 </Link>
@@ -174,10 +174,12 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-8">
-            <MessageCircle className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">No conversations yet</h3>
-            <p className="text-gray-600 mb-4">Start your first conversation to begin your journey</p>
+          <div className="text-center py-12">
+            <div className="w-20 h-20 bg-watercolor-1 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MessageCircle className="w-10 h-10 text-text-secondary opacity-50" />
+            </div>
+            <h3 className="text-lg font-heading font-semibold text-text mb-2">No conversations yet</h3>
+            <p className="text-text-secondary mb-6 font-body">Start your first conversation to begin your journey</p>
             <button
               onClick={handleQuickStart}
               className="btn-primary"

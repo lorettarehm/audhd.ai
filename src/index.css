@@ -1,60 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&family=Caveat:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Default theme variables - will be overridden by ThemeContext */
+  --color-primary: #2563eb;
+  --color-secondary: #0891b2;
+  --color-accent: #06b6d4;
+  --color-background: #f0f9ff;
+  --color-surface: #ffffff;
+  --color-text: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-border: #e2e8f0;
+  --color-watercolor-1: rgba(37, 99, 235, 0.1);
+  --color-watercolor-2: rgba(8, 145, 178, 0.15);
+  --color-watercolor-3: rgba(6, 182, 212, 0.08);
+  
+  /* Font variables */
+  --font-heading: 'Playfair Display';
+  --font-body: 'Inter';
+  --font-accent: 'Dancing Script';
+}
+
 @layer base {
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-body), system-ui, sans-serif;
   }
   
   body {
-    @apply bg-gradient-to-br from-primary-50 to-secondary-50 min-h-screen;
+    background: var(--color-background);
+    color: var(--color-text);
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Watercolor background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, var(--color-watercolor-1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, var(--color-watercolor-2) 0%, transparent 50%),
+      radial-gradient(circle at 60% 20%, var(--color-watercolor-3) 0%, transparent 50%),
+      radial-gradient(circle at 30% 80%, var(--color-watercolor-1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), serif;
+  }
+
+  .font-accent {
+    font-family: var(--font-accent), cursive;
   }
 }
 
 @layer components {
+  /* Watercolor-inspired components */
+  .watercolor-card {
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .watercolor-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--color-watercolor-1), var(--color-watercolor-2), var(--color-watercolor-3));
+    border-radius: 1rem;
+    z-index: -1;
+    opacity: 0.3;
+  }
+
+  .watercolor-border {
+    border: 3px solid transparent;
+    background: linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+                linear-gradient(45deg, var(--color-primary), var(--color-secondary), var(--color-accent)) border-box;
+  }
+
+  .watercolor-shadow {
+    box-shadow: 
+      0 4px 6px -1px var(--color-watercolor-1),
+      0 2px 4px -1px var(--color-watercolor-2),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .watercolor-shadow-strong {
+    box-shadow: 
+      0 10px 15px -3px var(--color-watercolor-1),
+      0 4px 6px -2px var(--color-watercolor-2),
+      0 0 0 1px var(--color-primary),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .watercolor-dot {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
-  
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 10px 20px var(--color-watercolor-1),
+      0 6px 6px var(--color-watercolor-2);
+  }
+
   .btn-secondary {
-    @apply bg-secondary-600 hover:bg-secondary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 2px solid var(--color-border);
+    transition: all 0.3s ease;
   }
-  
+
+  .btn-secondary:hover {
+    border-color: var(--color-primary);
+    background: var(--color-watercolor-1);
+    transform: translateY(-1px);
+  }
+
   .card {
-    @apply bg-white rounded-xl shadow-lg border border-gray-100 p-6;
+    background: var(--color-surface);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 2px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
   }
-  
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+    opacity: 0.6;
+  }
+
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: 0.75rem;
+    background: var(--color-surface);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
   }
-  
+
+  .input-field:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 
+      0 0 0 3px var(--color-watercolor-1),
+      inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
   .chat-bubble-user {
-    @apply bg-primary-600 text-white rounded-2xl rounded-br-md px-4 py-3 max-w-xs ml-auto;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    border-radius: 1.5rem 1.5rem 0.25rem 1.5rem;
+    padding: 1rem 1.25rem;
+    max-width: 20rem;
+    margin-left: auto;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.2);
   }
-  
+
   .chat-bubble-ai {
-    @apply bg-gray-100 text-gray-800 rounded-2xl rounded-bl-md px-4 py-3 max-w-xs mr-auto;
+    background: var(--color-surface);
+    color: var(--color-text);
+    border-radius: 1.5rem 1.5rem 1.5rem 0.25rem;
+    padding: 1rem 1.25rem;
+    max-width: 20rem;
+    margin-right: auto;
+    border: 2px solid var(--color-border);
+    position: relative;
   }
+
+  .chat-bubble-ai::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--color-watercolor-1), var(--color-watercolor-2));
+    border-radius: 1.5rem 1.5rem 1.5rem 0.25rem;
+    z-index: -1;
+    opacity: 0.5;
+  }
+
+  /* Theme-aware colors */
+  .bg-primary { background-color: var(--color-primary); }
+  .bg-secondary { background-color: var(--color-secondary); }
+  .bg-accent { background-color: var(--color-accent); }
+  .bg-surface { background-color: var(--color-surface); }
+  .bg-watercolor-1 { background-color: var(--color-watercolor-1); }
+  .bg-watercolor-2 { background-color: var(--color-watercolor-2); }
+  .bg-watercolor-3 { background-color: var(--color-watercolor-3); }
+
+  .text-primary { color: var(--color-primary); }
+  .text-secondary { color: var(--color-secondary); }
+  .text-accent { color: var(--color-accent); }
+  .text-text { color: var(--color-text); }
+  .text-text-secondary { color: var(--color-text-secondary); }
+
+  .border-primary { border-color: var(--color-primary); }
+  .border-secondary { border-color: var(--color-secondary); }
+  .border-accent { border-color: var(--color-accent); }
+  .border-border { border-color: var(--color-border); }
+
+  .font-heading { font-family: var(--font-heading), serif; }
+  .font-body { font-family: var(--font-body), sans-serif; }
+  .font-accent { font-family: var(--font-accent), cursive; }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with watercolor styling */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 3px;
+  background: var(--color-watercolor-1);
+  border-radius: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
+  background: linear-gradient(var(--color-primary), var(--color-secondary));
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: linear-gradient(var(--color-secondary), var(--color-accent));
 }
 
 /* Accessibility improvements */
@@ -64,9 +287,48 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  
+  .btn-primary::before {
+    display: none;
+  }
 }
 
-/* Focus indicators for better accessibility */
+/* Focus indicators with watercolor styling */
 .focus-visible {
-  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  outline: none;
+  box-shadow: 
+    0 0 0 3px var(--color-watercolor-1),
+    0 0 0 5px var(--color-primary);
+}
+
+/* Watercolor animations */
+@keyframes watercolor-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes watercolor-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.watercolor-float {
+  animation: watercolor-float 6s ease-in-out infinite;
+}
+
+.watercolor-pulse {
+  animation: watercolor-pulse 3s ease-in-out infinite;
+}
+
+/* Responsive watercolor effects */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+  
+  .watercolor-card {
+    border-radius: 0.75rem;
+  }
 }

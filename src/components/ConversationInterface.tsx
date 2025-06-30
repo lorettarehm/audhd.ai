@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Conversation } from '@elevenlabs/react'
+import { useState, useRef } from 'react'
 import { useConversation } from '../contexts/ConversationContext'
-import { Mic, MicOff, Volume2, VolumeX } from 'lucide-react'
+import { Mic, MicOff, Volume2, VolumeX, MessageCircle } from 'lucide-react'
 
 interface ConversationInterfaceProps {
   agentId?: string

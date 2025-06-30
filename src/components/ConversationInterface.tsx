@@ -6,13 +6,13 @@ interface ConversationInterfaceProps {
   agentId?: string
 }
 
-export default function ConversationInterface({ agentId }: ConversationInterfaceProps) {
+export default function ConversationInterface({ agentId: _agentId }: ConversationInterfaceProps) {
   const { addMessage, currentConversation } = useConversation()
   const [isRecording, setIsRecording] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
-  const conversationRef = useRef<any>(null)
+  const _conversationRef = useRef<any>(null)
 
-  const handleMessage = async (message: string, role: 'user' | 'assistant') => {
+  const _handleMessage = async (message: string, role: 'user' | 'assistant') => {
     if (currentConversation) {
       await addMessage(message, role)
     }
